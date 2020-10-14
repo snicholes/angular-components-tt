@@ -1,0 +1,16 @@
+<div class="pkmn">
+    <h2>{{ pokemon.id }}: {{ pokemon.name | pokeFormat }}</h2>
+    <ng-container *ngFor="let sprite of pokemon.sprites | keyvalue">
+        <img *ngIf="sprite.value && sprite.key !== 'other' && sprite.key !== 'versions'"
+            [src]="sprite.value" [alt]="sprite.key" [title]="sprite.key" />
+    </ng-container>
+    <p>
+        <strong>Types: </strong>
+        <span appTypeColor *ngFor="let type of pokemon.types">{{ type.type.name }} </span>
+    <p>
+        <strong>Held Items: </strong>
+        <app-held-items [list]="pokemon.held_items"></app-held-items>
+    </p>
+    <h4>Moves: </h4>
+    <app-moves [list]="pokemon.moves"></app-moves>
+</div>

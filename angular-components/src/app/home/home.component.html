@@ -1,0 +1,6 @@
+<div class="top">
+    <h1>PokeAPI Angular App</h1>
+    <input [(ngModel)]="pokeId" />
+    <button (click)="getPokemon()">Get Pokemon</button>
+</div>
+<app-pokemon [pokemon]="pokemon"></app-pokemon>
